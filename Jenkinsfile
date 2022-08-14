@@ -24,7 +24,7 @@ pipeline {
    }
     stage('Docker build') {
             steps {
-                sh "${DOCKER_HOME} build -t oktbabs/newpytest:v1.0.0 ."
+                sh "sudo ${DOCKER_HOME} build -t oktbabs/newpytest:v1.0.0 ."
 
             }
         }	    
