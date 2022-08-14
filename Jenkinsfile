@@ -27,7 +27,14 @@ pipeline {
                 sh "sudo ${DOCKER_HOME} build -t oktbabs/newpytest:v1.0.0 ."
 
             }
-        }	    
+        }
+    stage('Docker Run image') {
+            steps {
+                sh "sudo ${DOCKER_HOME} images
+		    sudo ${DOCKER_HOME} run --rm -d -p 9090:8890 oktbabs/newpytest:v1.0.0"
+
+            }
+        }	    	    
     }
 	
 }
