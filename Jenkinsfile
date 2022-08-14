@@ -16,8 +16,8 @@ pipeline {
         }
      stage("Docker login"){
       steps{
-      ([usernamePassword(credentialsId: 'oktbabs', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]){
-      sh "${DOCKER_HOME} login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
+         withCredentials([usernamePassword(credentialsId: 'oktbabs', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]){
+        sh "${DOCKER_HOME} login -u ${DOCKER_USER} -p ${DOCKER_PASS}"
             }
         }
    }
