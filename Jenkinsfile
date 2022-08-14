@@ -14,7 +14,12 @@ pipeline {
 
             }
         }
-		
+ stage('execute python script') {
+            steps {
+                sh '''python server.py'''
+
+            }
+        }
     }
 	
 }
